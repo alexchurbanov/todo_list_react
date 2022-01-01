@@ -1,5 +1,5 @@
 import './TodoItem.sass';
-import {Todo, TodoActions} from "../../App/App";
+import {Todo, TodoActions} from "../../App";
 import React, {useState} from "react";
 
 interface TodoItemProps {

@@ -1,6 +1,6 @@
 import './TodoForm.sass';
 import React, {useState} from "react";
-import {TodoActions} from "../App/App";
+import {TodoActions} from "../App";
 
 interface TodoFormProps {
   addTodo: TodoActions["addTodo"]

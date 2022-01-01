@@ -1,8 +1,8 @@
 import './App.sass';
-import TodoForm from "../TodoForm/TodoForm";
+import TodoForm from "./TodoForm/TodoForm";
 import React, {useState} from "react";
 import {v4 as uuidv4} from 'uuid';
-import TodoList from "../TodoList/TodoList";
+import TodoList from "./TodoList/TodoList";
 
 export interface Todo {
   name: string,

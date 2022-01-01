@@ -1,5 +1,5 @@
 import './TodoList.sass';
-import {Todo, TodoActions} from "../App/App";
+import {Todo, TodoActions} from "../App";
 import TodoItem from "./TodoItem/TodoItem";
 
 interface TodoListProps {
