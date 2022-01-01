@@ -1,0 +1,92 @@
+@keyframes strike {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.todo-item, .todo-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 16px;
+  border-radius: 5px;
+  width: 90%;
+  font-weight: 400;
+  margin: 4px auto 10px;
+}
+
+.todo-item {
+  background: linear-gradient(90deg, #ff7614 0%, #ff5411 100%);
+}
+
+.todo-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.todo-remove-btn {
+  margin-left: 5px;
+  border-radius: 4px;
+  padding: 10px;
+  background: linear-gradient(90deg, #680606 0%, #990000 100%);
+  z-index: 1;
+}
+
+.todo-edit-btn {
+  margin-left: 5px;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 1;
+}
+.todo-edit-btn:disabled {
+  background: #2c0382;
+  cursor: not-allowed;
+  color: gray;
+}
+
+.todo-edit-input {
+  max-width: 350px;
+}
+
+.todo-save-edit-btn {
+  margin-left: 5px;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100px;
+  background: linear-gradient(90deg, #2c6806 0%, #009908 100%);
+}
+.todo-save-edit-btn:disabled {
+  background: linear-gradient(90deg, #133603 0%, #005308 100%);
+  cursor: not-allowed;
+  color: gray;
+}
+
+.todo-cancel-edit-btn {
+  margin-left: 5px;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100px;
+  background: linear-gradient(90deg, #05266c 0%, #004599 100%);
+}
+
+.checked {
+  background: linear-gradient(90deg, #827c7c 0%, #535050 100%);
+  position: relative;
+}
+.checked::after {
+  position: absolute;
+  top: calc(50% - .5 * 0.125em);
+  right: 0;
+  width: 500px;
+  height: 0.125em;
+  border-radius: 0 0.125em 0.125em 0;
+  background: #7d0c1f;
+  animation: strike 0.5s;
+  content: "";
+}
+
+/*# sourceMappingURL=TodoItem.css.map */
