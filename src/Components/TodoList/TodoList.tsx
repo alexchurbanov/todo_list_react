@@ -1,6 +1,6 @@
 import './TodoList.sass';
 import {Todo, TodoActions} from "../App/App";
-import TodoItem from "../TodoItem/TodoItem";
+import TodoItem from "./TodoItem/TodoItem";
 
 interface TodoListProps {
   todos: Todo[],

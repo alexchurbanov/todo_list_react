@@ -1,5 +1,5 @@
 import './TodoItem.sass';
-import {Todo, TodoActions} from "../App/App";
+import {Todo, TodoActions} from "../../App/App";
 import React, {useState} from "react";
 
 interface TodoItemProps {
@@ -14,16 +14,12 @@ function TodoItem({item, deleteTodo, editTodo}: TodoItemProps) {
   const [checked, setCheck] = useState(false);
 
   if (!edit) {
-	const checkTodo = (e: any) => {
-	  e.stopPropagation();
-	  setCheck(!checked);
-	}
 	const editTodo = (e: any) => {
 	  e.stopPropagation();
 	  setEdit(true);
 	}
 	return (
-		<li className={`todo-item ${checked && 'checked'}`} onClick={checkTodo}>
+		<li className={`todo-item ${checked && 'checked'}`} onClick={() => setCheck(!checked)}>
 		  <span>{item.name}</span>
 		  <div className="todo-buttons">
 			<button className="todo-remove-btn" type="button" onClick={() => deleteTodo(item.id)}>
@@ -43,6 +39,7 @@ function TodoItem({item, deleteTodo, editTodo}: TodoItemProps) {
 	}
 
 	const saveEdit = () => {
+	  if (!new_name) return alert("Name cannot be empty");
 	  const editedTodo: Todo = {id: item.id, name: new_name};
 	  editTodo(editedTodo);
 	  setEdit(false);
@@ -51,9 +48,10 @@ function TodoItem({item, deleteTodo, editTodo}: TodoItemProps) {
 	return (
 		<li className='todo-edit'>
 		  <label>
-			<input className="todo-edit-input" value={new_name} placeholder={item.name} onChange={e => setNewName(e.target.value)} required/>
+			<input className="todo-edit-input" value={new_name} placeholder={item.name}
+				   onChange={e => setNewName(e.target.value)} required/>
 		  </label>
-		  <button className="todo-save-edit-btn" type="button" onClick={() => saveEdit()}>
+		  <button className="todo-save-edit-btn" type="button" onClick={() => saveEdit()} disabled={!new_name}>
 			<span>Ok</span>
 		  </button>
 		  <button className="todo-cancel-edit-btn" type="button" onClick={() => cancelEdit()}>
