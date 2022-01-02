@@ -14,12 +14,14 @@ function TodoItem({item, deleteTodo, editTodo}: TodoItemProps) {
   const [checked, setCheck] = useState(false);
 
   if (!edit) {
+
 	const editTodo = (e: any) => {
 	  e.stopPropagation();
 	  setEdit(true);
 	}
+
 	return (
-		<li className={`todo-item ${checked && 'checked'}`} onClick={() => setCheck(!checked)}>
+		<li className={`todo-item ${checked ? 'checked' : ''}`} onClick={() => setCheck(!checked)}>
 		  <span>{item.name}</span>
 		  <div className="todo-buttons">
 			<button className="todo-remove-btn" type="button" onClick={() => deleteTodo(item.id)}>

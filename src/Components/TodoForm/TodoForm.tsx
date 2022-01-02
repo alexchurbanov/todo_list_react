@@ -16,14 +16,11 @@ function TodoForm({addTodo}: TodoFormProps) {
 	setTaskName('');
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-	setTaskName(e.target.value);
-  }
-
   return (
 	  <form className="todo-form" onSubmit={createTodo}>
 		<label>
-		  <input className="todo-form-input" value={taskName} onChange={handleChange} placeholder="Type task name"
+		  <input className="todo-form-input" value={taskName} onChange={e => setTaskName(e.target.value)}
+				 placeholder="Type task name"
 				 required/>
 		</label>
 		<button type="submit" className="todo-form-button" disabled={!taskName}>
